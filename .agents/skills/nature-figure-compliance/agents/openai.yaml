@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nature Figure Compliance"
+  short_description: "Check Nature-style research figures and summaries"
+  default_prompt: "Use $nature-figure-compliance to check Nature research figure specifications, accessibility, export formats, image integrity, chemical structures, Extended Data, and summary paragraph requirements."

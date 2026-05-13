@@ -1,0 +1,85 @@
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+.cursor/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+env/
+ENV/
+
+# Python caches and build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# R session and package artifacts
+.Rhistory
+.RData
+.Rproj.user/
+renv/library/
+packrat/lib*/
+
+# Notebooks and temporary analysis outputs
+.ipynb_checkpoints/
+tmp/
+temp/
+cache/
+logs/
+*.log
+
+# Source PDFs and generated literature extraction outputs
+literature/pdfs/*.pdf
+literature/extracted/**
+!literature/extracted/
+!literature/extracted/.gitkeep
+
+# Generated figure/code outputs
+figure_skills_output/
+
+# Large local data artifacts
+*.h5ad
+*.h5
+*.hdf5
+*.loom
+*.rds
+*.Rds
+*.qs
+*.parquet
+*.feather
+*.pkl
+*.pickle
+*.joblib
+*.npz
+*.npy
+*.mtx
+*.bam
+*.bai
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+*.rar

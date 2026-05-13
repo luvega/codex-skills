@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paper Figure Extractor"
+  short_description: "Extract reusable bioinformatics figure rules from paper PDFs"
+  default_prompt: "Use $paper-figure-extractor to extract abstract plot grammar, statistics, style tokens, and figure cards from biomedical paper PDFs without reproducing published figures."

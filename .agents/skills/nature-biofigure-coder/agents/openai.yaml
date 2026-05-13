@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nature Biofigure Coder"
+  short_description: "Generate publication-grade biomedical plotting templates"
+  default_prompt: "Use $nature-biofigure-coder to generate reproducible R and Python plotting templates from structured figure cards or plot recipes."

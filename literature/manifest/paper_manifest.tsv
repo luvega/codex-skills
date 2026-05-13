@@ -1,0 +1,17 @@
+paper_id	title	journal	year	doi	pdf_path	main_data_types	target_figures	notes
+2023_Nature_Communic_Mapping_and_modeling_huma	Mapping and modeling huma	Nature Communic	2023		literature/pdfs/2023-Nature Communic-Mapping and modeling huma.pdf			pypdf_text_pages=17; figure_mentions=111
+2023_Nature_Methods_Learning_single_cell_pertu	Learning single-cell pertu	Nature Methods	2023		literature/pdfs/2023-Nature Methods-Learning single-cell pertu.pdf			pypdf_text_pages=14; figure_mentions=44
+2024_Nature_Genetics_Spatial_transcriptomic_an	Spatial transcriptomic an	Nature Genetics	2024		literature/pdfs/2024-Nature Genetics-Spatial transcriptomic an.pdf			pypdf_text_pages=23; figure_mentions=86
+2024_Nature_Genetics_Spatially_resolved_analys	Spatially resolved analys	Nature Genetics	2024		literature/pdfs/2024-Nature Genetics-Spatially resolved analys.pdf			pypdf_text_pages=32; figure_mentions=109
+2025_Nature_Methods_High_throughput_profiling	High-throughput profiling	Nature Methods	2025		literature/pdfs/2025-Nature Methods-High-throughput profiling.pdf			pypdf_text_pages=26; figure_mentions=71
+2025_Nature_Methods_Squidiff_predicting_cellu	Squidiff_ predicting cellu	Nature Methods	2025		literature/pdfs/2025-Nature Methods-Squidiff_ predicting cellu.pdf			pypdf_text_pages=20; figure_mentions=92
+2025_Nature_Proteotoxic_stress_response_drives	Proteotoxic stress response drives	Nature	2025		literature/pdfs/2025-Nature-Proteotoxic stress response drives.pdf			pypdf_text_pages=38; figure_mentions=146
+2026_Nature_Cancer_Heterogeneity_and_plasticit	Heterogeneity and plasticit	Nature Cancer	2026		literature/pdfs/2026-Nature Cancer-Heterogeneity and plasticit.pdf			pypdf_text_pages=14; figure_mentions=12
+2026_Nature_Cancer_Temporal_and_spatial_compos	Temporal and spatial compos	Nature Cancer	2026		literature/pdfs/2026-Nature Cancer-Temporal and spatial compos.pdf			pypdf_text_pages=33; figure_mentions=117
+2026_Nature_Cancer_The_automated_computational	The automated computational	Nature Cancer	2026		literature/pdfs/2026-Nature Cancer-The automated computational.pdf			pypdf_text_pages=37; figure_mentions=97
+2026_Nature_Cell_Bio_Peritumoural_adipose_tiss	Peritumoural adipose tiss	Nature Cell Bio	2026		literature/pdfs/2026-Nature Cell Bio-Peritumoural adipose tiss.pdf			pypdf_text_pages=35; figure_mentions=118
+2026_Nature_Architecture_of_the_neutrophil_com	Architecture of the neutrophil com	Nature	2026		literature/pdfs/2026-Nature-Architecture of the neutrophil com.pdf			pypdf_text_pages=46; figure_mentions=174
+2026_Nature_Atlas_guided_discovery_of_transcri	Atlas-guided discovery of transcri	Nature	2026		literature/pdfs/2026-Nature-Atlas-guided discovery of transcri.pdf			pypdf_text_pages=33; figure_mentions=149
+2026_Nature_Single_cell_spatiotemporal_dissect	Single-cell spatiotemporal dissect	Nature	2026		literature/pdfs/2026-Nature-Single-cell spatiotemporal dissect.pdf			pypdf_text_pages=41; figure_mentions=244
+2026_Nature_Temporal_tissue_dynamics_from_a_sp	Temporal tissue dynamics from a sp	Nature	2026		literature/pdfs/2026-Nature-Temporal tissue dynamics from a sp.pdf			pypdf_text_pages=17; figure_mentions=98
+2026_Nature_Whole_genome_landscapes_of_1_364_b	Whole-genome landscapes of 1,364 b	Nature	2026		literature/pdfs/2026-Nature-Whole-genome landscapes of 1,364 b.pdf			pypdf_text_pages=29; figure_mentions=105

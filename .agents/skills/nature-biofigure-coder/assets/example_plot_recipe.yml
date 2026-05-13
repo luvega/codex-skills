@@ -1,0 +1,37 @@
+version: 1
+recipe_id: example_caf_umap
+plot_type: UMAP embedding
+biological_question: Show CAF and immune cell-state structure across conditions.
+figure_kind: main
+width_class: single
+nature_compliance:
+  target_width_mm: 89
+  max_height_mm: 170
+  body_text_pt: 7
+  panel_label_pt: 8
+  line_width_pt: 0.35
+input_data:
+  path: path/to/cell_metadata.tsv
+  shape: one row per cell
+  required_columns:
+    - cell_id
+    - sample_id
+    - patient_id
+    - condition
+    - cell_type
+    - UMAP_1
+    - UMAP_2
+mappings:
+  x: UMAP_1
+  y: UMAP_2
+  color: cell_type
+  facet: condition
+statistics:
+  statistical_test: not reported in PDF
+  multiple_testing: not reported in PDF
+palette:
+  semantic_palette: cell_type
+outputs:
+  out_dir: figure_skills_output/plot_recipes/example_caf_umap
+  save_plot_data: true
+  save_qc_report: true
