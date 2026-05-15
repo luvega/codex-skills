@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bioinformatics FigureYa Plotting"
+  short_description: "Find and adapt FigureYa biomedical plotting modules."
+  default_prompt: "Use $bioinformatics-figureya-plotting to choose a FigureYa module and create a publication-ready biomedical plot from my data."
