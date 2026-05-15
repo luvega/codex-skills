@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nature Language Style"
+  short_description: "Extract and apply Nature-style prose tokens"
+  default_prompt: "Use $nature-language-style to extract corpus-derived Nature-style language rules from local PDFs and apply them to manuscript prose."

@@ -1,0 +1,82 @@
+version: 1
+purpose: Shared visual defaults for biomedical plotting templates.
+
+canvas:
+  background: "#FFFFFF"
+  panel_background: "#FFFFFF"
+  grid_major: "#E6E6E6"
+  grid_minor: "none"
+
+typography:
+  font_family: "Arial"
+  fallback_family: "Helvetica"
+  base_size_pt: 7
+  title_size_pt: 7
+  axis_title_size_pt: 7
+  axis_text_size_pt: 6
+  legend_text_size_pt: 6
+  strip_text_size_pt: 7
+  panel_label_size_pt: 8
+  min_text_size_pt: 5
+  max_text_size_pt: 7
+  letter_spacing: 0
+  editable_text_required: true
+  matplotlib_pdf_fonttype: 42
+
+lines:
+  axis_width_pt: 0.35
+  tick_width_pt: 0.35
+  data_line_width_pt: 0.45
+  panel_border_width_pt: 0.35
+  min_width_pt: 0.25
+  max_width_pt: 1.0
+
+points:
+  small_point_size: 0.25
+  medium_point_size: 1.2
+  alpha_dense: 0.65
+  alpha_sparse: 0.9
+
+legends:
+  position: "right"
+  key_size_cm: 0.32
+  compact: true
+
+exports:
+  figure_sizes:
+    main_single_column:
+      width_mm: 89
+      max_height_mm: 170
+    main_double_column:
+      width_mm: 183
+      max_height_mm: 170
+    extended_data:
+      width_mm: 180
+      max_height_mm: 170
+  vector_formats:
+    - pdf
+    - svg
+  main_preferred_formats:
+    - pdf
+    - eps
+    - ai
+  extended_data_formats:
+    - jpg
+    - tiff
+    - eps
+  raster_format: png
+  raster_dpi: 450
+  extended_data_raster_dpi: 300
+  default_width_in: 3.504
+  default_height_in: 3.0
+  default_width_class: main_single_column
+
+avoid:
+  - rainbow color scale
+  - red-green-only contrast
+  - decorative backgrounds
+  - unexplained statistical stars
+  - hidden group ordering
+  - outlined text
+  - colored text labels without sufficient contrast
+  - decorative icons

@@ -1,0 +1,50 @@
+version: 1
+checked_date: 2026-05-13
+
+main_figure:
+  widths_mm:
+    single_column: 89
+    double_column: 183
+  max_height_mm: 170
+  preferred_formats: [".ai", ".eps", ".pdf"]
+  acceptable_formats: [".ps", ".svg", ".xls", ".xlsx"]
+  rejected_formats: [".jpg", ".jpeg", ".tif", ".tiff", ".png"]
+  recommended_max_file_size_mb: 50
+  color_space: RGB
+  text:
+    font: ["Arial", "Helvetica"]
+    min_pt: 5
+    max_pt: 7
+    panel_label_pt: 8
+    editable: true
+    embed_font_types: ["TrueType 2", "TrueType 42"]
+  image_dpi:
+    minimum_photographic: 300
+    target_final_artwork: 450
+
+extended_data:
+  max_items: 10
+  max_width_mm: 180
+  max_height_mm: 170
+  accepted_formats: [".jpg", ".jpeg", ".tif", ".tiff", ".eps"]
+  preferred_format: ".jpg"
+  max_file_size_mb: 10
+  line_width_pt:
+    min: 0.25
+    max: 1
+  table_widths_mm: [89, 180]
+
+accessibility_palette:
+  black: "#000000"
+  orange: "#e69f00"
+  sky_blue: "#56b4e9"
+  bluish_green: "#009e73"
+  yellow: "#f0e442"
+  blue: "#0072b2"
+  vermillion: "#d55e00"
+  reddish_purple: "#cc79a7"
+
+summary_paragraph:
+  typical_words_min: 190
+  typical_words_max: 250
+  maximum_words_with_broader_perspective: 300

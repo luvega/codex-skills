@@ -1,0 +1,26 @@
+version: 1
+record_type: nature_language_style_sample
+fields:
+  paper_id:
+    description: Stable local paper identifier.
+  source_file:
+    description: Extracted text file path or PDF-derived text path.
+  section_guess:
+    description: Deterministic section guess such as title, abstract, introduction, results, discussion, methods, figure_legend, or body.
+  sample_type:
+    description: heading, abstract_candidate, body_paragraph, figure_caption, or sentence.
+  word_count:
+    description: Word count after whitespace normalization.
+  sentence_count:
+    description: Sentence count after deterministic sentence splitting.
+  trigger_tokens:
+    description: Semicolon-separated phrase tokens detected in the sample.
+  text_excerpt:
+    description: Short locator excerpt under 20 words; not a reusable copied paragraph.
+phrase_count_fields:
+  phrase:
+    description: Phrase or regex family counted across the corpus.
+  count:
+    description: Number of matches in normalized text.
+  papers:
+    description: Number of papers where the phrase was detected.
