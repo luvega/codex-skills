@@ -13,7 +13,7 @@ This skill complements `paper-figure-extractor`: the extractor creates abstract 
 
 ## Required Operating Rules
 
-Before using this skill, read and follow `references/agent_operating_rules.md`. In particular: state assumptions, ask on material ambiguity, keep plotting changes surgical, use the model for recipe interpretation while deterministic code handles validation/routing/retries, define success criteria, test plotting intent, checkpoint multi-step work, and make skipped checks or uncertain statistics visible.
+Before using this skill, read and follow `../../references/agent_operating_rules.md`. In particular: state assumptions, ask on material ambiguity, keep plotting changes surgical, use the model for recipe interpretation while deterministic code handles validation/routing/retries, define success criteria, test plotting intent, checkpoint multi-step work, and make skipped checks or uncertain statistics visible.
 
 ## Nature Compliance Sync
 
@@ -27,6 +27,8 @@ Backend policy:
 
 - For recipe exploration, benchmarking, and user requests that explicitly ask for both languages, generate both R and Python templates.
 - For final submission figures, or when the user chooses one language, use the selected backend for plotting, previews, exports, and visual QA.
+- When the user wants to reuse FigureYa modules, or when a local FigureYa checkout is available, treat FigureYa as an R template backend. Match recipes with `scripts/figureya_module_audit.py match <recipes_dir> --repo <FigureYa_repo> --out <matches.tsv> --markdown <matches.md>`, then inspect the selected module's Rmd, easy_input files, and example image before adapting code.
+- When adapting FigureYa modules for Nature-style output, keep the module source read-only. If `F:\FigureYa\styles\nature_figure_style.R` exists, source it in the copied/adapted script and check `F:\FigureYa\docs\nature_style_audit.tsv` or regenerate it with `python F:\FigureYa\scripts\figureya_nature_style_audit.py --repo F:\FigureYa --inventory F:\FigureYa\docs\module_inventory.tsv --out F:\FigureYa\docs\nature_style_audit.tsv --report F:\FigureYa\docs\nature_style_summary.md`.
 - Do not silently switch backend because a package is missing. Report the blocker, write install notes if useful, or ask permission to install.
 - The non-selected language may inspect files or convert tables only when it does not create the visual output.
 
@@ -49,10 +51,11 @@ For plot-family selection, consult `references/bioinformatics_plot_type_atlas.md
 3. Validate the user's input file exists and contains the required columns before generating plot code.
 4. Load `references/style_tokens.yml` and `references/palettes.yml` only when styling or palette choices are needed.
 5. Use `references/r_python_package_map.md` to choose packages that match the plot type and input data.
-6. Do not invent missing statistics. If the recipe says `not reported in PDF`, generate code that either omits the test or exposes a parameter the user must set.
-7. Apply Nature hard specs when requested: 89 mm or 183 mm main-figure widths, 170 mm maximum height, 5-7 pt body text, 8 pt panel labels, 0.25-1 pt line widths, editable text, RGB output, color-blind-safe palettes, and `pdf.fonttype=42` for matplotlib.
-8. Generate script(s) that save the plotting table, editable vector output, high-resolution raster output, and a QC markdown report.
-9. Record package versions or session information.
+6. If FigureYa is relevant, use `references/figureya_backend_map.tsv` and `scripts/figureya_module_audit.py` to find local candidate modules. Do not overwrite the FigureYa module; copy or adapt the minimal code into the output workspace. For Nature-style output, apply the FigureYa style adapter when present and record any audit flags or deliberate style deviations.
+7. Do not invent missing statistics. If the recipe says `not reported in PDF`, generate code that either omits the test or exposes a parameter the user must set.
+8. Apply Nature hard specs when requested: 89 mm or 183 mm main-figure widths, 170 mm maximum height, 5-7 pt body text, 8 pt panel labels, 0.25-1 pt line widths, editable text, RGB output, color-blind-safe palettes, and `pdf.fonttype=42` for matplotlib.
+9. Generate script(s) that save the plotting table, editable vector output, high-resolution raster output, and a QC markdown report.
+10. Record package versions or session information.
 
 ## Standard Outputs
 
@@ -87,6 +90,8 @@ For Nature main figures, prefer editable vector output (`.pdf` plus `.svg` for w
 - R palette helpers: `scripts/r/palettes.R`
 - Python style helpers: `scripts/python/style_nature_bio.py`
 - Python palette helpers: `scripts/python/palettes.py`
+- FigureYa module matcher: `scripts/figureya_module_audit.py`
+- FigureYa recipe map: `references/figureya_backend_map.tsv`
 - Figure contract: `references/figure_contract.md`
 
 These helpers are optional starting points. Generated scripts may inline equivalent code when that makes the result easier to run.
@@ -102,3 +107,4 @@ Before finishing generated plotting code, verify:
 - Output dimensions, figure kind, width class, and max-height compliance are recorded.
 - Output formats include at least one editable vector format and one high-resolution raster format.
 - The plotting table used for the figure is saved separately from the source data.
+- When FigureYa was used, the selected module path, copied code sections, input schema mapping, and any deviations from the original module are recorded.

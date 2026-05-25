@@ -1,0 +1,38 @@
+recipe_pattern	keywords	preferred_modules	notes
+abundance_box	cell abundance proportion box violin group	FigureYa162boxViolin;FigureYa39bar;FigureYa224scMarker	Use sample-level aggregation for statistical claims.
+alluvial_state	alluvial sankey state flow transition	FigureYa87fish	No direct alluvial module in the local upstream-tracked snapshot; use FigureYa87fish only for clone prevalence style flows.
+assay_correlation	correlation scatter assay concordance	FigureYa97correlationV3;FigureYa228linkCor	Check paired sample identity before correlation.
+calibration_reliability	calibration reliability ROC AUC classifier	FigureYa102multipanelROC;FigureYa200pairwiseAUC	Use ROC modules only when the metric is classifier discrimination.
+cellchat	CellChat communication network ligand receptor	FigureYa267scCellChat;FigureYa178receptorLigand;FigureYa272scBulkCCCI	Preserve directed sender-receiver semantics and edge filtering.
+circos	circos genomic links chromosome	FigureYa14circos;FigureYa26circos_R;FigureYa74OmicCircos;FigureYa259circLink	Use only when genomic coordinates are meaningful.
+clinical_genomics	oncoplot oncoprint survival genomics mutation	FigureYa42oncoprintV2_update;FigureYa18oncoplot_update;FigureYa128Prognostic	Separate mutation visualization from survival modeling.
+clonotype	clonotype overlap repertoire venn interaction	FigureYa112Plus_venn;FigureYa147interaction	Local FigureYa modules are approximate for repertoire overlap.
+composition_stacked	composition stacked bar proportion	FigureYa39bar;FigureYa224scMarker;FigureYa162boxViolin	Record denominator and sample grouping.
+copy_number	CNV copy number profile scCNV genomics	FigureYa166scCNV;FigureYa14circos;FigureYa26circos_R	Confirm genome build and chromosome ordering.
+coexpression	coexpression WGCNA network module	FigureYa301scCoExpr;FigureYa17WGCNA_heatmap;FigureYa153ccgraph	Record module detection and trait association source.
+crispr	CRISPR screen rank perturbation	FigureYa240CRISPR	Confirm score direction before ranking.
+drug_dose	dose response drug GDSC IC50 target	FigureYa105GDSC;FigureYa246supervisedGDSC;FigureYa145target	Do not mix predicted and measured drug response without labels.
+enrichment_bubble	enrichment GO KEGG pathway bubble clusterProfiler	FigureYa60GSEA_clusterProfilerV2;FigureYa80GOclustering;FigureYa156enrichSimulation	Confirm organism, universe and ID type.
+genome_browser	genome browser track locus genomic coordinate	FigureYa74OmicCircos;FigureYa14circos;FigureYa26circos_R	No direct genome-browser track module in the local snapshot.
+gsea	GSEA running score ranked gene set	FigureYa13GSEA_Java_update;FigureYa60GSEA_clusterProfilerV2	Confirm ranked metric and gene-set database.
+ligand_receptor	ligand receptor dotplot communication sender receiver	FigureYa178receptorLigand;FigureYa267scCellChat;FigureYa272scBulkCCCI	Prefer table-based dot plots for pair scores.
+lineage_clone	fishplot lineage clone trajectory	FigureYa87fish	Use only for clone or state prevalence across ordered conditions.
+ma_mean	MA plot mean difference differential expression	FigureYa59volcanoV2;FigureYa119Multiclasslimma	FigureYa has closer volcano and limma templates than a direct MA module.
+manhattan	Manhattan locus GWAS genome	FigureYa74OmicCircos	No direct Manhattan module in the local snapshot.
+marker_signature	marker signature heatmap scHeatmap pvalue	FigureYa169sigHeatmap;FigureYa206scHeatmap;FigureYa243scMarkerGroupHeatmap;FigureYa165heatmapPvalue	Record scaling and clustering rules.
+method_benchmark	benchmark dot box method ROC AUC performance	FigureYa102multipanelROC;FigureYa200pairwiseAUC;FigureYa162boxViolin	Use metric-specific modules and preserve benchmark split.
+methylation	methylation epigenomics ATAC panMeth	FigureYa270panMeth;FigureYa271panMethExpr;FigureYa155ATAC	Confirm assay and genomic region definition.
+multiomics	multiomics factor loading SNF correlation	FigureYa258SNF;FigureYa74OmicCircos;FigureYa97correlationV3	Local modules are approximate for latent factor plots.
+neighborhood	neighborhood enrichment spatial domain	FigureYa267scCellChat;FigureYa272scBulkCCCI	No direct spatial-neighborhood module in the local snapshot.
+pca_variance	PCA loadings variance 3D	FigureYa164PCA3D	Use only if 3D PCA is appropriate; otherwise adapt code.
+perturbation	perturbation effect embedding scDEG	FigureYa235scDEG;FigureYa224scMarker;FigureYa59volcanoV2	Local modules cover DEG and marker views more than perturbation embeddings.
+phase_portrait	phase portrait dynamics trajectory velocity	FigureYa177RNAvelocity	Approximate backend; inspect code before adapting.
+pseudotime	pseudotime trajectory lineage	FigureYa177RNAvelocity	No direct pseudotime module in the local snapshot.
+qc_multi	QC dashboard batch PCA correlation ComBat	FigureYa203ComBat;FigureYa73batchCorrelation;FigureYa164PCA3D	Use as diagnostics, not as final biological claim figures.
+rna_velocity	RNA velocity scvelo trajectory	FigureYa177RNAvelocity	Requires velocity-specific input objects.
+single_cell_embedding	single cell UMAP tSNE marker embedding	FigureYa224scMarker;FigureYa206scHeatmap;FigureYa235scDEG	FigureYa modules include scRNA workflows; inspect whether UMAP coordinates are expected or computed.
+spatial_feature	spatial feature tissue coordinates celltype	FigureYa224scMarker;FigureYa243scMarkerGroupHeatmap	No direct spatial transcriptomics module in the local snapshot.
+spatial_ligand	spatial ligand receptor proximity	FigureYa178receptorLigand;FigureYa267scCellChat;FigureYa272scBulkCCCI	Communication modules lack spatial coordinate validation unless added.
+trajectory_gene	trajectory gene heatmap pseudotime	FigureYa177RNAvelocity;FigureYa206scHeatmap	Combine trajectory ordering with heatmap rendering carefully.
+upset	upset intersection venn set overlap	FigureYa112Plus_venn	Use Venn only for small set counts; prefer UpSet for dense overlaps.
+volcano	volcano differential expression logFC pvalue	FigureYa59volcanoV2;FigureYa75bubble_volcano;FigureYa119Multiclasslimma	Verify contrast direction and adjusted p-value column.

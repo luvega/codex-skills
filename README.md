@@ -1,6 +1,15 @@
 # Codex Skills
 
+当前版本：0.2
+
 这个仓库用于集中维护可复用的 Codex skills，便于在不同电脑之间同步、安装和持续迭代。
+
+## 0.2 更新
+
+- 强化 `paper-figure-extractor` 的 figure card 结构、页码反查和审计脚本。
+- 为 `nature-biofigure-coder` 增加 FigureYa 后端匹配表和模块审计脚本。
+- 更新 `bioinformatics-figureya-plotting`，优先使用本地 `F:\FigureYa` inventory、Nature 风格审计和 FigureYa 样例图库。
+- 与 `nature-biofigure-toolkit` 0.2 配套：FigureYa 项目侧提供 `easy_input` 驱动图库、`docs/index.md` 项目首页和 Nature 风格整理层。
 
 ## 目录约定
 
