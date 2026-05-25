@@ -25,6 +25,10 @@ Build a lightweight source map before creating reusable cards when traceability 
 
 Separate each important field into `observed`, `inferred`, or `missing`. If the user asks for prose, abstract, title, figure legend, or manuscript language style rather than plot grammar, use `nature-language-style` instead of overloading this skill.
 
+Use `caption_excerpt` for a short literal caption or source locator from the extracted Markdown. Put paraphrased biological questions in `question`, not in `caption_excerpt`.
+
+When a card depends on visual evidence such as panel layout, plot geometry, color semantics, spatial images, microscopy images, or extracted hex colors, render the PDF page image first and mark the supporting field as `visible in page image`. Do not keep visual claims that only came from text extraction.
+
 ## Workflow
 
 1. Create or update `literature/manifest/paper_manifest.tsv`. Use `references/paper_manifest_template.tsv` for the required columns.
@@ -33,9 +37,10 @@ Separate each important field into `observed`, `inferred`, or `missing`. If the 
 4. Create a source map for target captions, figure mentions, table mentions, and nearby body paragraphs when traceability is needed.
 5. Identify target figure captions and panel references from the extracted text.
 6. For each selected panel, create a card under `literature/extracted/{paper_id}/cards/`. Use `references/figure_card_template.md` or `scripts/make_figure_cards.py`.
-7. Fill the Nature compliance section when the source or target output is Nature-family.
-8. Summarize cards into `literature/extracted/{paper_id}/extraction_table.tsv` with `scripts/summarize_extraction_table.py`.
-9. Save reusable plot candidates under `figure_skills_output/plot_recipes/` only after the card fields separate observed facts from inferred interpretation.
+7. Audit card grounding with `scripts/validate_figure_cards.py <cards_dir> --literature-dir literature/extracted --output <audit.md>`. Fix page-number, source-status, caption-locator, and missing-page-render issues before summarizing.
+8. Fill the Nature compliance section when the source or target output is Nature-family.
+9. Summarize cards into `literature/extracted/{paper_id}/extraction_table.tsv` with `scripts/summarize_extraction_table.py`.
+10. Save reusable plot candidates under `figure_skills_output/plot_recipes/` only after the card fields separate observed facts from inferred interpretation.
 
 ## Extraction Rules
 
@@ -61,6 +66,7 @@ Separate each important field into `observed`, `inferred`, or `missing`. If the 
 - `scripts/extract_pdf_text.py <pdf_path> <out_path>`
 - `scripts/make_figure_cards.py --paper-id ID --figure-panel Fig1a --out-dir DIR [other metadata]`
 - `scripts/summarize_extraction_table.py <cards_dir> <output_tsv>`
+- `scripts/validate_figure_cards.py <cards_dir> --literature-dir literature/extracted [--output audit.md] [--strict]`
 
 The PDF scripts require PyMuPDF (`fitz`). If it is unavailable, report the missing dependency and ask before installing packages.
 
@@ -69,6 +75,7 @@ The PDF scripts require PyMuPDF (`fitz`). If it is unavailable, report the missi
 Before finishing any extraction task, verify:
 
 - No copyrighted figure image, cropped panel, or full PDF has been copied into reusable skill resources.
+- `validate_figure_cards.py` has been run when extracted cards are available, and any page-number or missing-render issues are resolved or explicitly documented.
 - Each figure card distinguishes observed information from inferred information.
 - Unknown statistics and preprocessing steps are explicitly marked.
 - The biological comparison direction and input data structure are recorded.

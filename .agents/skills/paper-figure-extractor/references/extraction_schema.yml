@@ -23,6 +23,9 @@ required_card_fields:
     pdf_path: ""
     page_number: ""
     caption_excerpt: ""
+    text_evidence: ""
+    image_evidence: "not assessed"
+    audit_status: "not audited"
   biological_question:
     question: ""
     comparison_direction: ""
@@ -93,6 +96,9 @@ summary_table_columns:
   - doi
   - figure_panel
   - page_number
+  - text_evidence
+  - image_evidence
+  - audit_status
   - biological_question
   - data_type
   - observation_unit

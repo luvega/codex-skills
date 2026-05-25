@@ -19,6 +19,9 @@ figure_panel: {figure_panel}
 pdf_path: {pdf_path}
 page_number: {page_number}
 caption_excerpt: {caption_excerpt}
+text_evidence:
+image_evidence: not assessed
+audit_status: not audited
 
 ## Biological question
 
