@@ -18,6 +18,12 @@ skills/
 - 仓库级 README 只写总览、安装和维护规则；skill 自身的使用说明放在各自目录里。
 - 当前仓库采用“一个仓库管理多个 skill”的方式，适合跨电脑统一部署和版本控制。
 
+## 当前版本
+
+当前版本：`0.3`。本版本新增 `academic-chinese-style`，用于中文生物医学、生信、综述、基金和论文文本的学术风格润色、章节逻辑调整、证据边界控制和引用来源保护。
+
+详细变更见 [CHANGELOG.md](CHANGELOG.md)。
+
 ## 已收录 Skills
 
 | Skill | 用途 | 来源 |
@@ -59,6 +65,12 @@ skills/
 
 ```powershell
 python $env:CODEX_HOME\skills\.system\skill-installer\scripts\install-skill-from-github.py --repo luvega/codex-skills --path skills/bioinformatics-figureya-plotting
+```
+
+安装中文学术写作风格 skill：
+
+```powershell
+python $env:CODEX_HOME\skills\.system\skill-installer\scripts\install-skill-from-github.py --repo luvega/codex-skills --path skills/academic-chinese-style
 ```
 
 如果没有设置 `CODEX_HOME`，可使用默认目录：
