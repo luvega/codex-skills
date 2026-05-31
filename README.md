@@ -22,6 +22,7 @@ skills/
 
 | Skill | 用途 | 来源 |
 | --- | --- | --- |
+| `academic-chinese-style` | 对中文生物医学、综述、基金和论文文本进行学术风格润色、章节逻辑调整和过度表述检查。 | 本地写作流程整理 |
 | `bioinformatics-figureya-plotting` | 基于 FigureYa 现有模块检索、改写和组合生物信息学作图流程。 | 本地 FigureYa 整理 |
 | `nature-biofigure-coder` | 将图形需求转成更接近 Nature 风格的可执行作图方案与代码。 | `nature-biofigure-toolkit` |
 | `nature-figure-compliance` | 对图件尺寸、字体、导出规格、图像完整性等进行合规检查。 | `nature-biofigure-toolkit` |
@@ -30,7 +31,7 @@ skills/
 
 ## 示例输出
 
-下面的图片是各 skill 的代表性输出预览，用来说明它们各自服务的工作类型。
+下面的图片是部分 skill 的代表性输出预览，用来说明它们各自服务的工作类型。
 
 ### `bioinformatics-figureya-plotting`
 
