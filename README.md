@@ -18,10 +18,17 @@ skills/
 - 仓库级 README 只写总览、安装和维护规则；skill 自身的使用说明放在各自目录里。
 - 当前仓库采用“一个仓库管理多个 skill”的方式，适合跨电脑统一部署和版本控制。
 
+## 当前版本
+
+当前版本：`0.3`。本版本新增 `academic-chinese-style`，用于中文生物医学、生信、综述、基金和论文文本的学术风格润色、章节逻辑调整、证据边界控制和引用来源保护。
+
+详细变更见 [CHANGELOG.md](CHANGELOG.md)。
+
 ## 已收录 Skills
 
 | Skill | 用途 | 来源 |
 | --- | --- | --- |
+| `academic-chinese-style` | 对中文生物医学、综述、基金和论文文本进行学术风格润色、章节逻辑调整和过度表述检查。 | 本地写作流程整理 |
 | `bioinformatics-figureya-plotting` | 基于 FigureYa 现有模块检索、改写和组合生物信息学作图流程。 | 本地 FigureYa 整理 |
 | `nature-biofigure-coder` | 将图形需求转成更接近 Nature 风格的可执行作图方案与代码。 | `nature-biofigure-toolkit` |
 | `nature-figure-compliance` | 对图件尺寸、字体、导出规格、图像完整性等进行合规检查。 | `nature-biofigure-toolkit` |
@@ -30,7 +37,7 @@ skills/
 
 ## 示例输出
 
-下面的图片是各 skill 的代表性输出预览，用来说明它们各自服务的工作类型。
+下面的图片是部分 skill 的代表性输出预览，用来说明它们各自服务的工作类型。
 
 ### `bioinformatics-figureya-plotting`
 
@@ -58,6 +65,12 @@ skills/
 
 ```powershell
 python $env:CODEX_HOME\skills\.system\skill-installer\scripts\install-skill-from-github.py --repo luvega/codex-skills --path skills/bioinformatics-figureya-plotting
+```
+
+安装中文学术写作风格 skill：
+
+```powershell
+python $env:CODEX_HOME\skills\.system\skill-installer\scripts\install-skill-from-github.py --repo luvega/codex-skills --path skills/academic-chinese-style
 ```
 
 如果没有设置 `CODEX_HOME`，可使用默认目录：
