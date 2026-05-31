@@ -32,6 +32,7 @@ MATCH_FIELDS = [
     "plot_type",
     "top_module",
     "top_score",
+    "top_confidence",
     "top_rmd",
     "top_inputs",
     "top_examples",
@@ -219,6 +220,16 @@ def score_module(record: ModuleRecord, query: str, preferred_modules: set[str]) 
     return score
 
 
+def confidence_for_score(score: int) -> str:
+    if score <= 0:
+        return "none"
+    if score >= 100:
+        return "high"
+    if score >= 20:
+        return "medium"
+    return "low"
+
+
 def match_recipe(
     recipe: dict[str, str],
     records: list[ModuleRecord],
@@ -255,6 +266,7 @@ def match_recipe(
         "plot_type": recipe.get("plot_type", ""),
         "top_module": top.module if top else "",
         "top_score": str(top_score),
+        "top_confidence": confidence_for_score(top_score),
         "top_rmd": top.rmd if top else "",
         "top_inputs": top.sample_inputs if top else "",
         "top_examples": top.examples if top else "",
@@ -292,17 +304,18 @@ def render_match_markdown(rows: list[dict[str, str]]) -> str:
         "",
         f"- Recipes checked: {len(rows)}",
         "",
-        "| Recipe | Plot type | Top FigureYa module | Score | Evidence files | Notes |",
-        "| --- | --- | --- | --- | --- | --- |",
+        "| Recipe | Plot type | Top FigureYa module | Score | Confidence | Evidence files | Notes |",
+        "| --- | --- | --- | --- | --- | --- | --- |",
     ]
     for row in rows:
         evidence = "; ".join(value for value in (row["top_rmd"], row["top_inputs"], row["top_examples"]) if value)
         lines.append(
-            "| {recipe} | {plot_type} | {module} | {score} | {evidence} | {notes} |".format(
+            "| {recipe} | {plot_type} | {module} | {score} | {confidence} | {evidence} | {notes} |".format(
                 recipe=escape_table(row["recipe_id"]),
                 plot_type=escape_table(row["plot_type"]),
                 module=escape_table(row["top_module"] or "no local match"),
                 score=escape_table(row["top_score"]),
+                confidence=escape_table(row["top_confidence"]),
                 evidence=escape_table(evidence),
                 notes=escape_table(row["backend_notes"]),
             )

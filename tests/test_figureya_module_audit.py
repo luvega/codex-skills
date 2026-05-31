@@ -93,6 +93,32 @@ implementation:
         self.assertEqual(rows[0]["recipe_id"], "volcano_differential_expression")
         self.assertEqual(rows[0]["top_module"], "FigureYa59volcanoV2")
         self.assertGreater(int(rows[0]["top_score"]), 0)
+        self.assertEqual(rows[0]["top_confidence"], "high")
+
+    def test_reports_no_confidence_when_no_module_matches(self) -> None:
+        audit = load_audit_module()
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            repo = root / "FigureYa"
+            repo.mkdir()
+
+            recipes = root / "recipes"
+            recipes.mkdir()
+            (recipes / "unknown_plot.yml").write_text(
+                """
+recipe_id: unclassified_plot
+plot_type: Completely unrelated schematic
+purpose: No shared biological plotting terms.
+""".strip(),
+                encoding="utf-8",
+            )
+
+            records = audit.index_modules(repo)
+            rows = audit.match_recipes(recipes, records, backend_map=[], top_n=2)
+
+        self.assertEqual(rows[0]["top_module"], "")
+        self.assertEqual(rows[0]["top_confidence"], "none")
 
     def test_short_recipe_patterns_match_exact_tokens_only(self) -> None:
         audit = load_audit_module()

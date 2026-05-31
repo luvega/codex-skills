@@ -24,6 +24,7 @@ CANONICAL_SOURCE_STATUS_VALUES = {
 
 IMAGE_REQUIRED_VALUES = {"visible in page image"}
 EMPTY_VALUES = {"", "not assessed", "not reported in PDF", "not applicable"}
+REQUIRED_EVIDENCE_FIELDS = ("text_evidence", "image_evidence", "audit_status")
 
 
 class FieldValue(NamedTuple):
@@ -209,6 +210,23 @@ def caption_excerpt_found(caption_excerpt: str, pages: dict[int, str]) -> bool:
     return normalized_caption in whole_text
 
 
+def required_field_issues(card: ParsedCard) -> list[Issue]:
+    issues: list[Issue] = []
+    for field_name in REQUIRED_EVIDENCE_FIELDS:
+        if card.fields.get(field_name, ""):
+            continue
+        issues.append(
+            Issue(
+                card_path=card.path,
+                code="MISSING_REQUIRED_FIELD",
+                severity="error",
+                message=f"Card is missing required evidence field: {field_name}.",
+                suggestion=f"Add {field_name} so the card can be audited against the extraction schema.",
+            )
+        )
+    return issues
+
+
 def audit_card(card: ParsedCard, literature_dir: Path) -> list[Issue]:
     issues: list[Issue] = []
     paper_id = card.fields.get("paper_id", "")
@@ -243,6 +261,7 @@ def audit_card(card: ParsedCard, literature_dir: Path) -> list[Issue]:
         return issues
 
     pages = parse_page_markdown(text_path.read_text(encoding="utf-8"))
+    issues.extend(required_field_issues(card))
 
     if not figure_panel:
         issues.append(

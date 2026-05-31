@@ -152,6 +152,77 @@ Fig. 2 | Spatial map.
 
         self.assertIn("IMAGE_PAGE_MISSING", {issue.code for issue in result.issues})
 
+    def test_flags_missing_required_evidence_fields(self) -> None:
+        validator = load_validator()
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cards_dir = root / "cards"
+            text_dir = root / "literature" / "extracted" / "paper_c" / "text"
+            cards_dir.mkdir()
+            text_dir.mkdir(parents=True)
+            (cards_dir / "paper_c_Fig3_umap.md").write_text(
+                """
+# Figure Extraction Card
+
+paper_id: paper_c
+figure_panel: Fig3_umap
+page_number: 3
+caption_excerpt: Fig. 3 | Single-cell atlas.
+source_status: explicit in caption/text
+""".strip(),
+                encoding="utf-8",
+            )
+            (text_dir / "full_text.md").write_text(
+                """
+## Page 3
+
+Fig. 3 | Single-cell atlas.
+""".strip(),
+                encoding="utf-8",
+            )
+
+            result = validator.audit_cards(cards_dir, root / "literature" / "extracted")
+
+        self.assertIn("MISSING_REQUIRED_FIELD", {issue.code for issue in result.issues})
+
+    def test_accepts_required_evidence_fields_when_present(self) -> None:
+        validator = load_validator()
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cards_dir = root / "cards"
+            text_dir = root / "literature" / "extracted" / "paper_d" / "text"
+            cards_dir.mkdir()
+            text_dir.mkdir(parents=True)
+            (cards_dir / "paper_d_Fig4_heatmap.md").write_text(
+                """
+# Figure Extraction Card
+
+paper_id: paper_d
+figure_panel: Fig4_heatmap
+page_number: 4
+caption_excerpt: Fig. 4 | Marker heatmap.
+text_evidence: full_text.md page 4 caption.
+image_evidence: not assessed
+audit_status: not audited
+source_status: explicit in caption/text
+""".strip(),
+                encoding="utf-8",
+            )
+            (text_dir / "full_text.md").write_text(
+                """
+## Page 4
+
+Fig. 4 | Marker heatmap.
+""".strip(),
+                encoding="utf-8",
+            )
+
+            result = validator.audit_cards(cards_dir, root / "literature" / "extracted")
+
+        self.assertNotIn("MISSING_REQUIRED_FIELD", {issue.code for issue in result.issues})
+
     def test_markdown_report_includes_suggested_page(self) -> None:
         validator = load_validator()
         issue = validator.Issue(
