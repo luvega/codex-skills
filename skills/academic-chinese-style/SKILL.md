@@ -1,126 +1,67 @@
 ---
 name: academic-chinese-style
 description: Use when revising Chinese biomedical, bioinformatics, literature-review, grant, or manuscript prose for restrained academic style, section logic, overclaim control, citation safety, terminology consistency, and EndNote/Zotero provenance preservation.
+version: "0.4.1"
+last_updated: "2026-05-31"
+status: active
+data_access_level: redacted
+task_type: writing
+related_skills: [nature-language-style, paper-figure-extractor, nature-figure-compliance]
 ---
 
 # Academic Chinese Style
 
 ## Overview
 
-将中文生物医学、生信、综述、基金和论文草稿改成克制、清楚、证据先行的学术表达。语言服务于科学论证：先修正段落功能和证据边界，再处理句式、词汇和流畅度。
+Use this skill to revise Chinese biomedical and bioinformatics prose without changing the science. The priority order is:
 
-核心原则：改语言，不改证据；压缩浮词，不压缩论证；增强结构，不替作者发明结论。
+1. Clarify the paper story and section role.
+2. Align major claims with evidence.
+3. Improve paragraph flow and terminology consistency.
+4. Polish sentence-level style only after the argument is stable.
+
+Core rule: improve language, not evidence. If a claim is not supported by the supplied manuscript, figure, table, citation, or figure evidence passport, weaken it, remove it, or mark it as `needs evidence`.
 
 ## Source Boundaries
 
-- 保留事实、数字、统计符号、单位、基因名、蛋白名、药物名、模型名、数据集名、citation token、BibTeX key、Zotero item key、EndNote 来源名和文件路径。
-- 不新增原文未给出的机制、样本量、P 值、软件版本、临床意义、因果关系或文献结论。
-- 可用本地论文、PDF、`full_text.md` 或已整理文献笔记校准语言风格，但它们是风格语料，不是自动补充科学事实的来源。
-- 不把长段原文、摘要或图注复制进可复用 skill 记录；如需记录风格样例，只保留短定位片段和派生规则。
+- Preserve facts, numbers, statistics, units, gene/protein/drug names, model names, dataset names, citation tokens, BibTeX keys, Zotero keys, EndNote source names, file paths, and provenance labels.
+- Do not add mechanisms, sample sizes, P values, software versions, clinical implications, causal links, novelty claims, or literature conclusions that are not present in the source material.
+- Local PDFs, `full_text.md`, and figure cards can calibrate style and evidence boundaries. They are not automatic sources for new scientific facts.
+- Do not copy long source paragraphs, abstracts, or captions into reusable skill notes. Keep derived rules, short locators, and claim-evidence maps instead.
 
-## Workflow
+## Paper Writing Workflow
 
-1. 界定任务类型：`润色`、`压缩`、`翻译后润色`、`标题`、`摘要`、`引言`、`结果`、`讨论`、`方法`、`图注`、`综述段落`、`基金文本` 或 `文献笔记`。
-2. 判断文本所在章节；不要用同一套写法处理所有章节。
-3. 改写前先诊断主要失败模式：论点弱、章节逻辑错误、无证据结论、只有证据没有判断、缺少边界、过度表述、句子拥挤、术语不一致、引用风险。
-4. 只改用户要求的文本；长文先给 1-2 段样稿锁定语气，再批量改。
-5. 保留所有引用、术语、数字和 provenance 标记；无法确认的科学含义放到 `需作者确认`。
-6. 如果输入是 `.docx`，同时使用 `doc` skill；若涉及 Zotero、EndNote、BibTeX、citation key 或主题 collection，同时使用相关文献工作流信息。
+1. Build a mini-outline before rewriting: section goal, paragraph roles, main claim, evidence source, and unresolved gaps.
+2. Revise one paragraph around one message. The first sentence should state the paragraph function.
+3. Run reverse outlining after each section: thesis, topic sentences, evidence under each topic sentence, and whether each paragraph maps back to the thesis.
+4. Check every major claim in Abstract and Introduction against experiments, figures/tables, literature, or a figure evidence passport.
+5. Finish with a reviewer-facing self-review: contribution, clarity, experimental strength, evaluation completeness, and method soundness.
 
-## Section Moves
+## Section Guides
 
-| 章节 | 主要任务 | 推荐顺序 | 避免 |
-|:---|:---|:---|:---|
-| 标题 | 可检索、具体、可辩护 | 对象/过程 + 场景/机制/结局 | 夸张 novelty、口号式标题 |
-| 摘要 | 让读者快速理解问题和贡献 | 背景 -> 缺口 -> 方法/材料 -> 关键发现 -> 含义/边界 | 方法堆砌、过强意义拔高 |
-| 引言 | 说明为什么研究值得做 | 领域重要性 -> 已知证据 -> 关键缺口 -> 本文目标 | 过长历史铺垫、提前写结果 |
-| 结果 | 报告观察到什么 | 实验/数据定位 -> 观察 -> 定量/比较 -> 小结 | 讨论式机制推断 |
-| 讨论 | 解释意义和限制 | 主要发现 -> 可能解释 -> 与已有研究关系 -> 局限 -> 含义 | 重复结果、由相关性推出因果 |
-| 方法 | 使工作可复现 | 设计/样本 -> 材料/数据 -> 流程 -> 指标 -> 统计 -> 伦理 | “常规方法”“标准条件”等空话 |
-| 图注 | 让图可独立理解 | panel 身份 -> 视觉编码 -> 样本/实验 -> 统计/尺度 -> 缩写 | 未报告检验、符号未解释 |
-| 综述 | 组织证据和争议 | 主题句 -> 证据分层 -> 分歧/限制 -> 小结 | 多篇文献揉成无来源断言 |
+Load only the reference needed for the current writing target:
 
-## Language Rules
+- Abstract: `references/paper-writing-abstract.md`
+- Introduction: `references/paper-writing-introduction.md`
+- Related Work: `references/paper-writing-related-work.md`
+- Method: `references/paper-writing-method.md`
+- Experiments: `references/paper-writing-experiments.md`
+- Conclusion: `references/paper-writing-conclusion.md`
+- Paragraph flow: `references/paragraph-flow.md`
+- Claim-evidence gate: `references/claim-evidence-gate.md`
+- Submission self-review: `references/paper-self-review.md`
 
-- 优先重排论证顺序，再润色句子。若段落功能混乱，先改结构。
-- 中文句子尽量一主干一判断；一个句子同时包含两个独立结论或“结果 + 完整解释”时应拆分。
-- 用具体对象、条件和限制替代“重要意义”“广泛关注”“深入探讨”等空泛表述。
-- 保留作者的稳健判断：可以写“目前证据更支持...”，不要改成没有立场的流水账。
-- 同一概念只保留一种中文译名；首次出现可给英文全称或缩写，后文保持一致。
-- 结果段先写观察和比较，再写解释；讨论段可以解释，但要标出证据边界。
-- 标题、摘要和小结要具体、可检索、可辩护，不追求口号式“高级感”。
+## Output Contract
 
-## Hedging Ladder
+For section drafting or revision, return:
 
-| 证据强度 | 适用情况 | 中文动词 |
-|:---|:---|:---|
-| 强证据 | 直接实验、重复定量结果或严密验证 | 表明、证实、证明 |
-| 中等证据 | 一致模式、支持性关联或多来源印证 | 提示、支持、说明 |
-| 机制可能性 | 合理解释但未直接证明 | 可能反映、可能参与、与...一致 |
-| 边界/不确定性 | 证据不足、样本限制或情境依赖 | 仍需验证、应谨慎解释、尚不能排除 |
+1. `章节小纲`: 3-7 bullets describing paragraph roles.
+2. `改写稿`: revised Chinese prose with stable terminology and evidence boundaries.
+3. `Claim-Evidence Map`: one line per major claim using `Claim: ... | Evidence: ... | Status: supported/partial/needs evidence/unsupported`.
+4. `自审问题`: unresolved reviewer-facing risks, not generic praise.
 
-默认不把“相关、预测、富集、评分、模型性能”改写成“导致、驱动、决定、证实机制”。
+For short polishing tasks, return the revised paragraph, 2-4 concrete edit notes, and `需作者确认` only for scientific, citation, terminology, or provenance risks.
 
-## Overclaim Checks
+## Attribution
 
-看到这些词或同类表达时，先检查证据，再决定是否降级：
-
-- 证明、首次、首创、突破性、革命性、颠覆性、显著推动、决定性、最佳、全面揭示、彻底阐明、广泛适用、普遍机制。
-
-常用替代表达：
-
-- 提示、支持、表明、在本队列中、在该模型下、对...提供依据、可能有助于、仍需进一步验证。
-
-## Output Protocol
-
-短文本直接返回：
-
-1. `改写稿`：可直接替换的中文。
-2. `修改要点`：2-4 条结构或风格层面的关键修改。
-3. `需作者确认`：只列科学含义、引用、术语、数字或 provenance 风险。
-
-长文或整章先返回：
-
-1. `风格诊断`：主要章节逻辑和证据风险。
-2. `样稿`：1-2 段改写示范。
-3. `批量处理计划`：按章节或段落推进。
-
-## Quick Reference
-
-| 原文倾向 | 改写方向 |
-|:---|:---|
-| 近年来 X 受到广泛关注 | X 已成为...中的核心问题，主要原因是... |
-| 本研究具有重要意义 | 该结果为...提供了依据，但仍需... |
-| 证明 X 导致 Y | 支持 X 与 Y 存在关联 / 提示 X 可能参与 Y |
-| 大量研究表明 | 已有研究从...和...两个层面支持... |
-| 因此亟需深入研究 | 现有证据仍不足以解释...，限制了... |
-
-## Example
-
-原文：
-
-> 肿瘤免疫治疗近年来受到了广泛关注，相关研究取得了突破性进展，但仍然存在很多问题，因此深入研究肿瘤微环境具有重要意义。
-
-改写：
-
-> 免疫治疗已成为肿瘤治疗研究的重要方向，但不同患者的响应差异仍难以由单一分子标志物解释。肿瘤微环境中的免疫细胞组成、细胞间通讯及代谢状态，可能共同影响治疗敏感性和耐药形成。因此，对肿瘤微环境进行分层解析，有助于更准确地界定免疫治疗响应的生物学基础。
-
-## Common Mistakes
-
-| 错误 | 修正 |
-|:---|:---|
-| 为了“高级”加入华丽形容词 | 用具体机制、对象、条件和限制替代形容词 |
-| 删除 citation token 或来源标记 | 原样保留；无法确认时列入 `需作者确认` |
-| 把相关性改成因果 | 降级为关联、提示、支持或可能参与 |
-| 将多篇文献揉成无来源结论 | 保留证据层次，按来源、主题或证据类型分句 |
-| 只改句子不改逻辑 | 先重排章节功能和论证顺序，再做局部润色 |
-
-## Final Check
-
-完成前检查：
-
-- 是否保留所有引用、数字、缩写、单位、路径和来源名。
-- 是否新增了原文没有的事实、机制、样本量、统计结果或文献结论。
-- 是否存在过强动词、宣传性形容词或空泛结论。
-- 是否能看出段落所属章节、逻辑功能和证据边界。
-- 是否列出了需要作者确认的科学含义、引用或术语问题。
+This skill adapts general paper-writing practices from open research-writing skill repositories and local sci_skills review work. The writing logic is a derived, compact workflow; do not copy external reference text verbatim unless license and attribution requirements are explicitly satisfied.

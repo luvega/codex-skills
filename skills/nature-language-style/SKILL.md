@@ -1,6 +1,12 @@
 ---
 name: nature-language-style
 description: Use when Codex needs to extract, summarize, polish, or apply Nature-family academic language style from local PDFs, full_text.md files, abstracts, titles, figure legends, summary paragraphs, or Chinese/English manuscript drafts. Trigger for Nature-style prose, section moves, hedging, overclaim checks, title or abstract rewriting, and corpus-derived language tokens.
+version: "0.4.1"
+last_updated: "2026-05-31"
+status: active
+data_access_level: redacted
+task_type: writing
+related_skills: [academic-chinese-style, nature-figure-compliance, paper-figure-extractor]
 ---
 
 # Nature Language Style
@@ -22,6 +28,7 @@ Before using this skill, read and follow `references/agent_operating_rules.md`. 
 - If the user asks for figure cards or plot recipes, use `paper-figure-extractor`.
 - If the user asks for plotting code, use `nature-biofigure-coder`.
 - If the user asks for final figure/package compliance, use `nature-figure-compliance`.
+- If the user asks for Chinese manuscript section logic, paragraph flow, or claim-evidence maps, use `academic-chinese-style` first and this skill only for Nature-family English style or bilingual alignment.
 
 ## Workflow
 
@@ -31,9 +38,10 @@ Before using this skill, read and follow `references/agent_operating_rules.md`. 
 4. Read `references/local_corpus_usage.md` and the generated corpus profile before applying local style tokens.
 5. Read `references/nature_language_guardrails.md` for section moves, sentence rules, hedging, and integrity checks.
 6. For summary paragraphs, also read `../nature-figure-compliance/references/summary_paragraph_rules.md`.
-7. Before rewriting, diagnose the main failure mode: weak argument, wrong section logic, claim without evidence, evidence without claim, missing boundary, overclaim, or sentence clutter.
-8. Rewrite only the requested text. Preserve data, statistics, gene names, model names, citations, units, and comparison direction.
-9. Report revision notes and any claims that require author verification.
+7. For Chinese manuscript logic, read `../academic-chinese-style/references/claim-evidence-gate.md` and the relevant Chinese section guide before polishing.
+8. Before rewriting, diagnose the main failure mode: weak argument, wrong section logic, claim without evidence, evidence without claim, missing boundary, overclaim, or sentence clutter.
+9. Rewrite only the requested text. Preserve data, statistics, gene names, model names, citations, units, and comparison direction.
+10. Report revision notes and any claims that require author verification.
 
 ## Language Rules
 

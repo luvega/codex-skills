@@ -1,6 +1,12 @@
 ---
 name: nature-figure-compliance
 description: Use when Codex needs to prepare, review, or QC figures and summary text against Nature research figure requirements, including main figures, Extended Data, graph styling, accessibility, export formats, editable text, image integrity, gels/blots, chemical structures, and Nature-style summary paragraphs.
+version: "0.4.1"
+last_updated: "2026-05-31"
+status: active
+data_access_level: verified_only
+task_type: review
+related_skills: [nature-biofigure-coder, paper-figure-extractor, nature-language-style]
 ---
 
 # Nature Figure Compliance
@@ -26,7 +32,8 @@ Before using this skill, read and follow `references/agent_operating_rules.md`. 
 7. Use `references/chemical_structure_rules.md` when structures, reaction schemes, atom labels, arrows, stereochemistry, salts, radicals, or ChemDraw exports are involved.
 8. Use `references/summary_paragraph_rules.md` for structural compliance of Nature summary paragraphs; use `nature-language-style` for corpus-derived prose style and rewriting.
 9. Use `references/example_corpus_usage.md` when comparing against the example Nature papers in `literature/pdfs/`.
-10. Write a QC report using `assets/nature_figure_qc_report_template.md`.
+10. Use `references/figure_package_reviewer.md` when the user asks for a multi-expert review of a figure package or manuscript-facing figure story.
+11. Write a QC report using `assets/nature_figure_qc_report_template.md`.
 
 ## Model vs Deterministic Work
 

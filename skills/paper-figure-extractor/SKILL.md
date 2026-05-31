@@ -1,6 +1,12 @@
 ---
 name: paper-figure-extractor
 description: Use when Codex needs to analyze biomedical paper PDFs, figure captions, figure panels, legends, plot types, statistical annotations, palettes, or literature-derived bioinformatics plotting recipes. Trigger for PDF-to-figure-card extraction, page/text extraction, paper manifests, and abstract plot grammar capture. Do not reproduce copyrighted figures; extract reusable rules only.
+version: "0.4.1"
+last_updated: "2026-05-31"
+status: active
+data_access_level: raw
+task_type: extraction
+related_skills: [nature-biofigure-coder, nature-figure-compliance, nature-language-style]
 ---
 
 # Paper Figure Extractor

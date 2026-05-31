@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/luvega/codex-skills/schemas/figure_evidence_passport.schema.json",
+  "title": "Figure Evidence Passport",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "passport_id",
+    "source",
+    "figure_cards",
+    "plot_recipes",
+    "qc_reports"
+  ],
+  "properties": {
+    "schema_version": { "const": "0.1" },
+    "passport_id": { "type": "string" },
+    "source": {
+      "type": "object",
+      "required": ["paper_id", "pdf_path", "extracted_text_path"],
+      "properties": {
+        "paper_id": { "type": "string" },
+        "pdf_path": { "type": "string" },
+        "extracted_text_path": { "type": "string" },
+        "source_locator": { "type": "string" }
+      }
+    },
+    "figure_cards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "card_path",
+          "caption_excerpt",
+          "source_status",
+          "text_evidence",
+          "image_evidence",
+          "audit_status"
+        ]
+      }
+    },
+    "plot_recipes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "card_id", "recipe_path", "plot_type"]
+      }
+    },
+    "qc_reports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "qc_path", "status"]
+      }
+    }
+  }
+}

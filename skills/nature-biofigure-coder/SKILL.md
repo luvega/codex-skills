@@ -1,6 +1,12 @@
 ---
 name: nature-biofigure-coder
 description: Use when Codex needs to generate reproducible R or Python plotting code for biomedical and bioinformatics figures from structured figure cards, plot_recipe.yml files, or extraction tables. Trigger for UMAP, dot plot, heatmap, volcano, enrichment, cell composition, survival, forest, spatial transcriptomics, TCR/BCR, CRISPR, drug response, multi-omics, trajectory, RNA velocity, GSEA, UpSet, alluvial, oncoprint, CNV, Manhattan, circos, genome tracks, WGCNA, ligand-receptor, QC, and method benchmark plots.
+version: "0.4.1"
+last_updated: "2026-05-31"
+status: active
+data_access_level: verified_or_redacted
+task_type: coding
+related_skills: [paper-figure-extractor, bioinformatics-figureya-plotting, nature-figure-compliance]
 ---
 
 # Nature Biofigure Coder

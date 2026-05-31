@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.4.1 - 2026-05-31
+
+- Added workflow architecture documentation for figure evidence, plotting, compliance, and writing gates.
+- Added `figure_evidence_passport` schema and validation fixtures.
+- Added deterministic checks for skill metadata, figure evidence passports, and claim-evidence maps.
+- Expanded `academic-chinese-style` with Chinese paper-writing section guides, paragraph-flow rules, claim-evidence gates, and reviewer-facing self-review.
+- Added multi-expert figure package review guidance to `nature-figure-compliance`.
+- Added a README workflow image generated with Imagegen and rewrote README as a Chinese project entrypoint.
+- Marked `literature/`, `figure_skills_output/`, and `tmp/` as local-only ignored data directories.
+
 ## v0.3 - 2026-05-31
 
 - Added `academic-chinese-style`, a reusable skill for Chinese biomedical, bioinformatics, literature-review, grant, and manuscript prose revision.

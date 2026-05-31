@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1",
+  "passport_id": "demo-passport",
+  "source": {
+    "paper_id": "demo_paper",
+    "pdf_path": "literature/pdfs/demo.pdf",
+    "extracted_text_path": "literature/extracted/demo_paper/text/full_text.md",
+    "source_locator": "demo_paper:Fig1"
+  },
+  "figure_cards": [
+    {
+      "id": "demo_paper_fig1",
+      "card_path": "literature/extracted/demo_paper/cards/demo_paper_fig1.md",
+      "caption_excerpt": "Fig. 1 | Overview of cell-state separation.",
+      "source_status": "explicit in caption/text",
+      "text_evidence": {
+        "source_locator": "demo_paper:caption:Fig1",
+        "excerpt": "Overview of cell-state separation."
+      },
+      "image_evidence": {
+        "page_image": "literature/extracted/demo_paper/pages/page_001.png",
+        "observed_elements": ["embedding", "color-coded cell states"]
+      },
+      "audit_status": "pass"
+    }
+  ],
+  "plot_recipes": [
+    {
+      "id": "demo_embedding_recipe",
+      "card_id": "demo_paper_fig1",
+      "recipe_path": "figure_skills_output/plot_recipes/single_cell_embedding.yml",
+      "plot_type": "single_cell_embedding",
+      "figureya_match": {
+        "module": "single-cell/umap",
+        "confidence": "strong"
+      }
+    }
+  ],
+  "qc_reports": [
+    {
+      "id": "demo_qc",
+      "card_id": "demo_paper_fig1",
+      "recipe_id": "demo_embedding_recipe",
+      "qc_path": "figure_skills_output/generated_code/demo/figure_qc.md",
+      "status": "pass"
+    }
+  ]
+}

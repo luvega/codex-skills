@@ -4,3 +4,8 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# Local research data and generated outputs.
+literature/
+figure_skills_output/
+tmp/

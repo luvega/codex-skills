@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1",
+  "passport_id": "bad-passport",
+  "source": {
+    "paper_id": "bad_paper",
+    "pdf_path": "C:/Users/xsui/Desktop/bad.pdf",
+    "extracted_text_path": "literature/extracted/bad_paper/text/full_text.md"
+  },
+  "figure_cards": [
+    {
+      "id": "bad_paper_fig1",
+      "card_path": "literature/extracted/bad_paper/cards/bad_paper_fig1.md",
+      "caption_excerpt": "Fig. 1 | Unsupported visual claim.",
+      "source_status": "explicit in caption/text",
+      "text_evidence": {},
+      "image_evidence": {},
+      "audit_status": "pass"
+    }
+  ],
+  "plot_recipes": [],
+  "qc_reports": []
+}

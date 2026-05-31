@@ -1,6 +1,12 @@
 ---
 name: bioinformatics-figureya-plotting
 description: Use when creating, adapting, or troubleshooting biomedical and bioinformatics plots with FigureYa, R, R Markdown, or module-style examples for gene expression, survival, DEG, enrichment, mutation, immune, drug, single-cell, multi-omics, ROC, heatmap, volcano, circos, WGCNA, GSVA, GSEA, and publication-ready figure tasks.
+version: "0.4.1"
+last_updated: "2026-05-31"
+status: active
+data_access_level: verified_or_redacted
+task_type: coding
+related_skills: [nature-biofigure-coder, nature-figure-compliance, paper-figure-extractor]
 ---
 
 # Bioinformatics FigureYa Plotting
