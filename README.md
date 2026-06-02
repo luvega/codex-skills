@@ -14,6 +14,43 @@
 
 因此，`sci_skills` 默认不追求“把图画得像某篇文章”，而是提取可复用的抽象图形语法、统计表达、证据定位和合规规则，再用于用户自己的数据和论文写作。
 
+## v0.5 更新重点
+
+v0.5 把项目从图件和论文表达扩展到更完整的科研交付链路：先解释生物医学研究结果，再把保守、可追溯的主张写入综述、论文段落、PPT storyboard、教案和算法说明。
+
+```mermaid
+flowchart LR
+    accTitle: v0.5 Research Workflow
+    accDescr: v0.5 links evidence sources to biomedical interpretation cards, then to writing, presentation, and teaching outputs.
+
+    evidence["figure/table/data/literature evidence"]
+    card["research interpretation card"]
+    writing["paper or review writing"]
+    deck["PPT storyboard"]
+    lesson["lesson plan"]
+    gate["claim-evidence gate"]
+
+    evidence --> card
+    card --> writing
+    card --> deck
+    card --> lesson
+    writing --> gate
+    deck --> gate
+    lesson --> gate
+```
+
+新增内容：
+
+| 更新 | 说明 |
+| --- | --- |
+| `biomedical-research-framework` | 面向生物信息学、肿瘤免疫、药物化学和 AI 方法课题，把 finding 拆成方法上下文、证据来源、允许主张、替代解释和验证建议。 |
+| `academic-presentation-teaching` | 面向组会 PPT、文献汇报、课程 PPT、教案、讲稿和算法解释，默认输出可审查的 brief/storyboard，不直接生成二进制 PPTX。 |
+| `research_interpretation_card` | 新增 JSON schema 和 checker，要求 domain、finding、method context、evidence locator、claim status、alternative explanations 和 validation needed。 |
+| `academic_output_brief` | 新增 JSON schema 和 checker，覆盖 `review_outline`、`ppt_storyboard`、`lesson_plan` 和 `algorithm_explanation`。 |
+| `academic-chinese-style` 扩展 | 新增综述写作、结果讨论、算法说明和领域表达规则，继续复用 claim-evidence map。 |
+
+这轮更新的重点不是扩大自动生成范围，而是把“可以写什么、不能写什么、还缺什么证据”变成可检查的中间产物。
+
 ## 工作流
 
 | 阶段 | 主要 skill | 输出 | 质量门禁 |
