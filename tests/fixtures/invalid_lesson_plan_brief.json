@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1",
+  "brief_id": "bad-lesson",
+  "brief_type": "lesson_plan",
+  "audience": "graduate students",
+  "topic": "AI biomarkers",
+  "learning_objectives": [],
+  "session_plan": [
+    {
+      "time": "0-10 min",
+      "activity": "Introduction"
+    }
+  ],
+  "assessment_prompts": [],
+  "evidence_map": [
+    {
+      "claim": "Students understand leakage.",
+      "evidence": "course quiz",
+      "status": "supported"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sci_skills/academic_output_brief.schema.json",
+  "title": "Academic Output Brief",
+  "type": "object",
+  "required": ["schema_version", "brief_id", "brief_type", "audience", "evidence_map"],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "brief_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "brief_type": {
+      "type": "string",
+      "enum": ["review_outline", "ppt_storyboard", "lesson_plan", "algorithm_explanation"]
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_map": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["claim", "evidence", "status"],
+        "properties": {
+          "claim": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": ["supported", "partial", "needs evidence", "unsupported"]
+          }
+        }
+      }
+    }
+  }
+}

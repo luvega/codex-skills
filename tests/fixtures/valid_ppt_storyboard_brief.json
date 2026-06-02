@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1",
+  "brief_id": "demo-group-meeting-ppt",
+  "brief_type": "ppt_storyboard",
+  "audience": "tumor immunology lab group meeting",
+  "purpose": "Explain why a T cell exhaustion signal is association evidence rather than causal proof.",
+  "slide_plan": [
+    {
+      "slide": 1,
+      "action_title": "Non-responder tumors show a stronger exhausted CD8 T cell signal",
+      "core_point": "The main result is an association in the analyzed cohort.",
+      "evidence_refs": ["Fig. 3b"]
+    }
+  ],
+  "visual_assets": ["figure_skills_output/demo/fig3b.png"],
+  "evidence_map": [
+    {
+      "claim": "The exhausted CD8 T cell score is higher in non-responders.",
+      "evidence": "Fig. 3b",
+      "status": "supported"
+    }
+  ]
+}

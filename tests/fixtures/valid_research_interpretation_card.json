@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1",
+  "card_id": "demo-tme-tcell-exhaustion",
+  "domain": "tumor-immunology",
+  "finding": "CD8 T cell exhaustion score is higher in non-responder tumor samples.",
+  "method_context": {
+    "assay": "single-cell RNA-seq",
+    "comparison": "ICI non-responder versus responder tumors",
+    "analysis": "cluster annotation, module scoring, and differential abundance"
+  },
+  "evidence_sources": [
+    {
+      "type": "figure",
+      "locator": "Fig. 3b",
+      "summary": "The exhaustion module score is higher in the non-responder CD8 T cell cluster."
+    },
+    {
+      "type": "passport",
+      "locator": "passport:demo-passport#card:demo_paper_fig1",
+      "summary": "The figure evidence passport links the plot recipe and QC note."
+    }
+  ],
+  "interpretation": "The result supports an association between exhausted CD8 T cell states and poor ICI response in this cohort.",
+  "alternative_explanations": [
+    "Batch composition may differ between responder groups.",
+    "The cluster may include activated cytotoxic cells rather than terminally exhausted cells."
+  ],
+  "validation_needed": [
+    "Check patient-level mixed effects rather than cell-level-only tests.",
+    "Validate exhaustion markers with independent cohorts or spatial assays."
+  ],
+  "allowed_claim": "Non-responder tumors show higher exhausted CD8 T cell signatures in the analyzed cohort.",
+  "claim_status": "supported"
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1",
+  "brief_id": "demo-review-ai-tme",
+  "brief_type": "review_outline",
+  "audience": "bioinformatics researchers preparing a Chinese review",
+  "scope": "AI methods for interpreting tumor microenvironment single-cell data.",
+  "taxonomy_axes": ["data modality", "model family", "biological question"],
+  "evidence_matrix": [
+    {
+      "claim": "Graph models can represent cell-cell communication hypotheses.",
+      "evidence": "literature:review-corpus#GNN-TME",
+      "status": "partial"
+    }
+  ],
+  "evidence_map": [
+    {
+      "claim": "Graph models can represent cell-cell communication hypotheses.",
+      "evidence": "literature:review-corpus#GNN-TME",
+      "status": "partial"
+    }
+  ],
+  "controversy_map": ["Whether learned interactions reflect biology or dataset bias."],
+  "knowledge_gaps": ["Prospective validation remains limited."],
+  "candidate_figures": ["Taxonomy matrix of AI methods and TME questions."],
+  "future_directions": ["Benchmark cross-cohort generalization with shared tasks."]
+}

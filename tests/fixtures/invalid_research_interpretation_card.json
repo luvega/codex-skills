@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.1",
+  "card_id": "bad-domain-card",
+  "domain": "oncology",
+  "finding": "The model completely explains immune escape.",
+  "method_context": {
+    "assay": "single-cell RNA-seq"
+  },
+  "evidence_sources": [
+    {
+      "type": "figure",
+      "locator": "",
+      "summary": "Missing exact figure/table/source locator."
+    }
+  ],
+  "interpretation": "The result is overclaimed.",
+  "alternative_explanations": [],
+  "validation_needed": [],
+  "allowed_claim": "The model completely explains immune escape.",
+  "claim_status": "supported"
+}

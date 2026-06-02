@@ -1,12 +1,12 @@
 ---
 name: academic-chinese-style
 description: Use when revising Chinese biomedical, bioinformatics, literature-review, grant, or manuscript prose for restrained academic style, section logic, overclaim control, citation safety, terminology consistency, and EndNote/Zotero provenance preservation.
-version: "0.4.1"
-last_updated: "2026-05-31"
+version: "0.5.0"
+last_updated: "2026-06-02"
 status: active
 data_access_level: redacted
 task_type: writing
-related_skills: [nature-language-style, paper-figure-extractor, nature-figure-compliance]
+related_skills: [nature-language-style, paper-figure-extractor, nature-figure-compliance, biomedical-research-framework, academic-presentation-teaching]
 ---
 
 # Academic Chinese Style
@@ -47,6 +47,10 @@ Load only the reference needed for the current writing target:
 - Method: `references/paper-writing-method.md`
 - Experiments: `references/paper-writing-experiments.md`
 - Conclusion: `references/paper-writing-conclusion.md`
+- Review writing: `references/review-writing-framework.md`
+- Results and discussion interpretation: `references/results-discussion-interpretation.md`
+- Algorithm explanation: `references/algorithm-explanation-writing.md`
+- Domain expression rules: `references/domain-expression-rules.md`
 - Paragraph flow: `references/paragraph-flow.md`
 - Claim-evidence gate: `references/claim-evidence-gate.md`
 - Submission self-review: `references/paper-self-review.md`

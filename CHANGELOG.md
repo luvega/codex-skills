@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.5.0 - 2026-06-02
+
+- Added `biomedical-research-framework` for bioinformatics, tumor-immunology, medicinal-chemistry, and AI-method result interpretation.
+- Added `academic-presentation-teaching` for review outlines, PPT storyboards, lesson plans, speaker notes, and algorithm explanations.
+- Added `research_interpretation_card` and `academic_output_brief` schemas with stdlib validation scripts and fixtures.
+- Expanded `academic-chinese-style` with review-writing, results-discussion, algorithm-explanation, and domain-expression references.
+- Updated architecture, README, and attribution notes for the v0.5 domain interpretation and academic-deliverable layer.
+
 ## v0.4.1 - 2026-05-31
 
 - Added workflow architecture documentation for figure evidence, plotting, compliance, and writing gates.

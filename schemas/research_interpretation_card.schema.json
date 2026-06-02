@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sci_skills/research_interpretation_card.schema.json",
+  "title": "Research Interpretation Card",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "card_id",
+    "domain",
+    "finding",
+    "method_context",
+    "evidence_sources",
+    "interpretation",
+    "alternative_explanations",
+    "validation_needed",
+    "allowed_claim",
+    "claim_status"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "card_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domain": {
+      "type": "string",
+      "enum": ["bioinformatics", "tumor-immunology", "medicinal-chemistry", "ai-methods", "mixed"]
+    },
+    "finding": {
+      "type": "string",
+      "minLength": 1
+    },
+    "method_context": {
+      "type": "object"
+    },
+    "evidence_sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["type", "locator", "summary"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["figure", "table", "text", "dataset", "code", "literature", "passport", "user_data"]
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "interpretation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "alternative_explanations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation_needed": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_status": {
+      "type": "string",
+      "enum": ["supported", "partial", "needs evidence", "unsupported"]
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 `sci_skills` 是一组面向生物医学科研工作的 Codex skills。它把论文图件抽取、证据链记录、FigureYa 作图复用、Nature 图件合规检查，以及中英文论文表达修订放在同一个可维护仓库中。
 
-当前版本：`0.4.1`。详细变更见 [CHANGELOG.md](CHANGELOG.md)。
+当前版本：`0.5.0`。详细变更见 [CHANGELOG.md](CHANGELOG.md)。
 
 ![sci_skills workflow](assets/readme/sci_skills_workflow.png)
 
@@ -22,7 +22,9 @@
 | 作图代码生成 | `nature-biofigure-coder` | R/Python plotting template、plot data contract | 统计、分组和比较方向必须来自 source 或用户数据 |
 | FigureYa 复用 | `bioinformatics-figureya-plotting` | 模块匹配、适配后的可运行示例 | FigureYa 作为外部只读 backend；匹配置信度必须可见 |
 | 图件合规评审 | `nature-figure-compliance` | QC report、多专家图件评审 | 尺寸、格式、可编辑性、图像完整性和缺失证据必须报告 |
+| 领域结果解释 | `biomedical-research-framework` | research interpretation card、可写主张、替代解释、验证建议 | 生信、肿瘤免疫、药化和 AI 主张必须区分观察、解释、机制和外推 |
 | 论文表达修订 | `academic-chinese-style` / `nature-language-style` | 改写稿、claim-evidence map、自审问题 | Abstract/Introduction 的主张必须有证据或标记 `needs evidence` |
+| 学术交付物 | `academic-presentation-teaching` | 综述框架、PPT storyboard、教案、算法说明 brief | 每页/每节一个核心观点；教学目标、证据 map 和 assessment prompt 必须可见 |
 
 完整架构见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。外部参考项目、许可证和改写边界见 [docs/ATTRIBUTION.md](docs/ATTRIBUTION.md)。
 
@@ -31,7 +33,9 @@
 | Skill | 用途 |
 | --- | --- |
 | `academic-chinese-style` | 中文生物医学论文、综述、基金和图文叙事的章节逻辑、段落流、claim-evidence 对齐和克制表达。 |
+| `academic-presentation-teaching` | 组会 PPT、文献汇报、课程 PPT、教案、讲稿和算法解释的 storyboard/brief 工作流。 |
 | `bioinformatics-figureya-plotting` | 检索和适配 FigureYa 模块，用真实输入复用生信作图流程。 |
+| `biomedical-research-framework` | 生信、肿瘤免疫、药物化学和 AI 课题的结果解释、综述框架、替代解释和验证建议。 |
 | `nature-biofigure-coder` | 将 figure card 或 plot recipe 转换为可复现的 R/Python 作图代码。 |
 | `nature-figure-compliance` | 检查图件包的 Nature-family 规格、导出格式、可编辑性、完整性和投稿风险。 |
 | `nature-language-style` | 提取和应用 Nature-family 英文写作风格，控制 hedging、overclaim 和语言边界。 |
@@ -57,7 +61,9 @@ python $env:CODEX_HOME\skills\.system\skill-installer\scripts\install-skill-from
   --path skills/bioinformatics-figureya-plotting `
   --path skills/nature-figure-compliance `
   --path skills/nature-language-style `
-  --path skills/academic-chinese-style
+  --path skills/academic-chinese-style `
+  --path skills/biomedical-research-framework `
+  --path skills/academic-presentation-teaching
 ```
 
 安装或更新后重启 Codex。
@@ -75,6 +81,8 @@ python -m unittest discover -s tests -v
 ```powershell
 python scripts\check_skill_metadata.py skills
 python scripts\check_figure_evidence_passport.py tests\fixtures\valid_figure_evidence_passport.json
+python scripts\check_research_interpretation_card.py tests\fixtures\valid_research_interpretation_card.json
+python scripts\check_academic_output_brief.py tests\fixtures\valid_ppt_storyboard_brief.json
 python scripts\check_claim_evidence_map.py path\to\writing-output.md
 git diff --check
 ```

@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1",
+  "brief_id": "demo-algorithm-explanation",
+  "brief_type": "algorithm_explanation",
+  "audience": "biomedical AI manuscript readers",
+  "task_definition": "Predict ICI response from pre-treatment tumor transcriptomic features.",
+  "algorithm_summary": "A regularized classifier maps expression-derived features to response labels.",
+  "inputs_outputs": {
+    "inputs": ["gene expression matrix", "patient response labels"],
+    "outputs": ["response probability", "feature importance report"]
+  },
+  "evaluation_plan": ["patient-level cross-validation", "external cohort validation", "calibration curve"],
+  "failure_modes": ["data leakage", "batch-specific signatures", "class imbalance"],
+  "biomedical_meaning": "The algorithm can prioritize candidate biomarkers but cannot prove mechanism without perturbation or prospective validation.",
+  "evidence_map": [
+    {
+      "claim": "The model is a candidate biomarker prioritization tool.",
+      "evidence": "user_data:model-report#external-validation",
+      "status": "partial"
+    }
+  ]
+}

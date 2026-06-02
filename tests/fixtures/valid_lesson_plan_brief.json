@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1",
+  "brief_id": "demo-lesson-ai-biomarker",
+  "brief_type": "lesson_plan",
+  "audience": "graduate students in bioinformatics",
+  "topic": "Avoiding leakage in biomarker prediction models",
+  "learning_objectives": [
+    "Identify sample-level leakage in train/test splits.",
+    "Explain why patient-level validation is required for clinical claims."
+  ],
+  "session_plan": [
+    {
+      "time": "0-15 min",
+      "activity": "Discuss model task definition and unit of independence."
+    }
+  ],
+  "case_studies": ["ICI response model with repeated patient samples."],
+  "discussion_questions": ["Which split strategy would make this claim defensible?"],
+  "assessment_prompts": ["Rewrite an overclaimed model result as a supported claim."],
+  "evidence_map": [
+    {
+      "claim": "Patient-level splitting reduces leakage risk.",
+      "evidence": "course fixture:split-example",
+      "status": "supported"
+    }
+  ]
+}

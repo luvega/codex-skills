@@ -16,6 +16,30 @@ v0.4 adapts workflow ideas from external open repositories without copying their
 - Ideas adapted: section-specific paper writing guides, mini-outline before rewriting, paragraph flow, reverse outlining, claim-evidence maps, and reviewer-facing self-review.
 - Boundary: sci_skills keeps these as derived compact rules for biomedical Chinese writing. Avoid verbatim copying of external guide text unless attribution and license conditions are explicitly handled.
 
+## SNL-UCSB/paper-writing-skill
+
+- Repository: `https://github.com/SNL-UCSB/paper-writing-skill`
+- Reviewed commit: `a7654ab`.
+- License noted during review: MIT.
+- Ideas adapted: project context before prose, claim-evidence alignment, section rhetorical moves, evaluation-to-claim mapping, figure specification, and result takeaway discipline.
+- Boundary: sci_skills uses these as derived workflow checks for biomedical interpretation and writing. Do not copy the upstream author profile, long prompts, examples, or lab-specific voice rules wholesale.
+
+## K-Dense-AI/scientific-agent-skills
+
+- Repository: `https://github.com/K-Dense-AI/scientific-agent-skills`
+- Reviewed commit: `9312485`.
+- Repository license noted during review: MIT; individual skills may declare different licenses.
+- Ideas adapted: broad scientific skill taxonomy, domain-specific routing, validation scripts, data-analysis safety gates, scientific-writing and slide-deliverable patterns.
+- Boundary: sci_skills does not vendor the skill collection. Before importing any specific code, fixture, or reference text, check that item's declared license and keep attribution.
+
+## zLanqing/codex-claude-academic-skills
+
+- Repository: `https://github.com/zLanqing/codex-claude-academic-skills`
+- Reviewed commit: `7ed6377`.
+- License noted during review: MIT.
+- Ideas adapted: Chinese-first academic workflow, evidence labels, Word/PPT source boundaries, academic report structure, PPT storyboard and quality-gate framing.
+- Boundary: sci_skills adapts only the workflow shape. It does not inherit that project's optoelectronics domain defaults or copy its bundled Office scripts.
+
 ## Local Project Policy
 
 - Use external repositories as design references, not as hidden source material.
