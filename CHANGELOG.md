@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.6.0 - 2026-06-03
+
+- Added courseware-first workflow skills: `course-skill-router`, `course-lecture-expand`, `course-ppt-storyboard`, `course-evidence-review`, and `course-update-vault`.
+- Adapted the AI_Course teaching-production workflow into reusable skill entries for lecture depth, slide storyboard, claim-evidence review, and course knowledge-vault maintenance.
+- Updated README installation notes and skill inventory for the v0.6 courseware workflow layer.
+
 ## v0.5.0 - 2026-06-02
 
 - Added `biomedical-research-framework` for bioinformatics, tumor-immunology, medicinal-chemistry, and AI-method result interpretation.

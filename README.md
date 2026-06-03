@@ -1,8 +1,8 @@
 # sci_skills
 
-`sci_skills` 是一组面向生物医学科研工作的 Codex skills。它把论文图件抽取、证据链记录、FigureYa 作图复用、Nature 图件合规检查，以及中英文论文表达修订放在同一个可维护仓库中。
+`sci_skills` 是一组面向生物医学科研与课程交付工作的 Codex skills。它把论文图件抽取、证据链记录、FigureYa 作图复用、Nature 图件合规检查、中英文论文表达修订，以及课程讲义/PPT/知识库维护放在同一个可维护仓库中。
 
-当前版本：`0.5.0`。详细变更见 [CHANGELOG.md](CHANGELOG.md)。
+当前版本：`0.6.0`。详细变更见 [CHANGELOG.md](CHANGELOG.md)。
 
 ![sci_skills workflow](assets/readme/sci_skills_workflow.png)
 
@@ -12,7 +12,41 @@
 
 论文 PDF、图页、caption、figure card、plot recipe、FigureYa 模块、QC 报告和论文文字不是彼此孤立的材料。它们应当通过明确的 handoff 串起来，使每一个视觉判断、作图选择和论文主张都能追溯到来源。
 
-因此，`sci_skills` 默认不追求“把图画得像某篇文章”，而是提取可复用的抽象图形语法、统计表达、证据定位和合规规则，再用于用户自己的数据和论文写作。
+因此，`sci_skills` 默认不追求“把图画得像某篇文章”，也不追求一次性生成不可审查的课件成品，而是提取可复用的抽象图形语法、统计表达、证据定位、教学结构和合规规则，再用于用户自己的数据、论文写作和课程生产。
+
+## v0.6 更新重点
+
+v0.6 把 AI_Course 中验证过的课程工作流整理为 5 个可复用 skill：先路由任务，再扩写讲义、产出 PPT storyboard、做 claim-evidence 审查，最后重建索引和维护知识库。
+
+```mermaid
+flowchart LR
+    accTitle: v0.6 Courseware Workflow
+    accDescr: v0.6 routes courseware tasks to lecture expansion, storyboard, evidence review, and vault maintenance.
+
+    task["courseware request"]
+    router["course-skill-router"]
+    lecture["course-lecture-expand"]
+    storyboard["course-ppt-storyboard"]
+    review["course-evidence-review"]
+    vault["course-update-vault"]
+
+    task --> router
+    router --> lecture
+    router --> storyboard
+    lecture --> review
+    storyboard --> review
+    review --> vault
+```
+
+新增内容：
+
+| 更新 | 说明 |
+| --- | --- |
+| `course-skill-router` | 把课程项目任务路由到讲义扩写、PPT storyboard、证据审查或知识库维护。 |
+| `course-lecture-expand` | 将过短的周讲义从 scaffold 扩写到可教学的 pilot-script，包含互动、误区、AI 审计和评分点。 |
+| `course-ppt-storyboard` | 先产出可审查 storyboard/brief，再进入 PPTX 生成，避免直接生成不可追溯二进制课件。 |
+| `course-evidence-review` | 检查生物医学、统计、可视化和 AI 解释中的 claim-evidence 对齐与过度主张。 |
+| `course-update-vault` | 维护课程项目索引、断链、周次映射、讲义深度报告和 skill registry。 |
 
 ## v0.5 更新重点
 
@@ -62,6 +96,7 @@ flowchart LR
 | 领域结果解释 | `biomedical-research-framework` | research interpretation card、可写主张、替代解释、验证建议 | 生信、肿瘤免疫、药化和 AI 主张必须区分观察、解释、机制和外推 |
 | 论文表达修订 | `academic-chinese-style` / `nature-language-style` | 改写稿、claim-evidence map、自审问题 | Abstract/Introduction 的主张必须有证据或标记 `needs evidence` |
 | 学术交付物 | `academic-presentation-teaching` | 综述框架、PPT storyboard、教案、算法说明 brief | 每页/每节一个核心观点；教学目标、证据 map 和 assessment prompt 必须可见 |
+| 课程交付物 | `course-skill-router` / `course-lecture-expand` / `course-ppt-storyboard` / `course-evidence-review` / `course-update-vault` | 周讲义、PPT storyboard、claim-evidence review、索引和维护报告 | 课程主线优先；讲义深度、来源边界、断链和 stale 索引必须可检查 |
 
 完整架构见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。外部参考项目、许可证和改写边界见 [docs/ATTRIBUTION.md](docs/ATTRIBUTION.md)。
 
@@ -73,6 +108,11 @@ flowchart LR
 | `academic-presentation-teaching` | 组会 PPT、文献汇报、课程 PPT、教案、讲稿和算法解释的 storyboard/brief 工作流。 |
 | `bioinformatics-figureya-plotting` | 检索和适配 FigureYa 模块，用真实输入复用生信作图流程。 |
 | `biomedical-research-framework` | 生信、肿瘤免疫、药物化学和 AI 课题的结果解释、综述框架、替代解释和验证建议。 |
+| `course-evidence-review` | 审查课程讲义、PPT storyboard 和 AI 解释中的 claim-evidence 对齐、统计/生物学边界和过度主张。 |
+| `course-lecture-expand` | 将过短周讲义扩写为教师可直接使用的讲稿，补足互动问题、误区纠偏、AI 审计和课后评分点。 |
+| `course-ppt-storyboard` | 在生成 PPTX 前产出可审查 slide storyboard，明确 action title、视觉意图、教师话术、学生动作和证据来源。 |
+| `course-skill-router` | 作为课程项目入口，根据任务类型路由到讲义扩写、PPT storyboard、证据审查或知识库维护。 |
+| `course-update-vault` | 重建课程索引、检查断链/周次映射/讲义深度/skill registry，并输出维护报告。 |
 | `nature-biofigure-coder` | 将 figure card 或 plot recipe 转换为可复现的 R/Python 作图代码。 |
 | `nature-figure-compliance` | 检查图件包的 Nature-family 规格、导出格式、可编辑性、完整性和投稿风险。 |
 | `nature-language-style` | 提取和应用 Nature-family 英文写作风格，控制 hedging、overclaim 和语言边界。 |
@@ -101,6 +141,18 @@ python $env:CODEX_HOME\skills\.system\skill-installer\scripts\install-skill-from
   --path skills/academic-chinese-style `
   --path skills/biomedical-research-framework `
   --path skills/academic-presentation-teaching
+```
+
+安装课程课件生产工作流：
+
+```powershell
+python $env:CODEX_HOME\skills\.system\skill-installer\scripts\install-skill-from-github.py `
+  --repo luvega/codex-skills `
+  --path skills/course-skill-router `
+  --path skills/course-lecture-expand `
+  --path skills/course-ppt-storyboard `
+  --path skills/course-evidence-review `
+  --path skills/course-update-vault
 ```
 
 安装或更新后重启 Codex。
