@@ -45,3 +45,9 @@ v0.4 adapts workflow ideas from external open repositories without copying their
 - Use external repositories as design references, not as hidden source material.
 - Prefer local wording, short derived rules, and deterministic checks.
 - Record provenance when a future update imports substantial text, schemas, code, examples, or fixtures.
+
+## AI_Course Courseware Workflow
+
+- Source: local AI_Course teaching-production workflow.
+- Ideas adapted: course truth layer before knowledge synthesis, week-level lecture expansion, PPT storyboard before binary deck generation, claim-evidence review for biomedical teaching content, and deterministic maintenance of indexes, links, week mapping, script depth, and skill registry.
+- Boundary: the upstream `course-*` skills are generalized workflow entries. They do not include local course files, raw teaching materials, generated reports, private paths, or project-specific scripts.
